@@ -22,7 +22,7 @@ export const App = () => {
   const addTodo = (newTodo: Omit<Todo, 'id'>) => {
     setTodoList(currentTodos => [
       ...currentTodos,
-      { ...newTodo, id: Math.max(...currentTodos.map(todo => todo.id)) + 1 },
+      { ...newTodo, id: Math.max(0, ...currentTodos.map(todo => todo.id)) + 1 },
     ]);
   };
 

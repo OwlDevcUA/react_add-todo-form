@@ -13,7 +13,7 @@ export const NewTodo: React.FC<Props> = ({ users, onAdd }) => {
   const [selectTouched, setSelectTouched] = useState(false);
   const hasError = titleTouched && !title.trim();
   const selectError = selectTouched && userValue === '0';
-  const isValid = title.trim() === '' || userValue === '0';
+  const isInvalid = title.trim() === '' || userValue === '0';
 
   const addTodo = (event: React.FormEvent) => {
     event.preventDefault();
@@ -21,7 +21,7 @@ export const NewTodo: React.FC<Props> = ({ users, onAdd }) => {
     setTitleTouched(true);
     setSelectTouched(true);
 
-    if (isValid) {
+    if (isInvalid) {
       return;
     }
 
